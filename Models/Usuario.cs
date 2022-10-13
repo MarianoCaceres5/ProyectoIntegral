@@ -7,14 +7,15 @@ namespace TiendaJoyas.Models{
     public class Usuario{
         
         private int _idUsuario, _edadUsuario;
-        private string _nombreUsuario, _mailUsuario, _contraseñaUsuario;
+        private string _nombreUsuario, _mailUsuario, _contraseñaUsuario, _fotoUsuario;
         
-        public Usuario(string pnombreUsuario, string pmailUsuario, string pcontraseñaUsuario, int pedadUsuario){
+        public Usuario(string pnombreUsuario, string pmailUsuario, string pcontraseñaUsuario, int pedadUsuario, string pfotoUsuario){
 
             _nombreUsuario = pnombreUsuario;
             _mailUsuario = pmailUsuario;
             _contraseñaUsuario = pcontraseñaUsuario;
             _edadUsuario = pedadUsuario;
+            _fotoUsuario = pfotoUsuario;
 
         }
 
@@ -24,6 +25,7 @@ namespace TiendaJoyas.Models{
             _mailUsuario = "";
             _contraseñaUsuario = "";
             _edadUsuario = 0;
+            _fotoUsuario = "";
         }
 
         public int IdUsuario{
@@ -43,6 +45,9 @@ namespace TiendaJoyas.Models{
         }
         public int EdadUsuario{
             get{return _edadUsuario;}
+        }
+        public string FotoUsuario{
+            get{return _fotoUsuario;}
         }
         
 
