@@ -15,6 +15,25 @@ public class HomeController : Controller
 
     public IActionResult Index()
     {
+        return View("Login");
+    }    
+    public IActionResult Inicio()
+    {
+        return View();
+    }
+
+    public IActionResult Productos()
+    {
+        return View();
+    }
+
+    public IActionResult Contacto()
+    {
+        return View();
+    }
+
+    public IActionResult Carrito()
+    {
         return View();
     }
 

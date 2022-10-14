@@ -17,7 +17,7 @@ namespace TiendaJoyas.Models
         public Carrito(){
             _idUsuario = 0;
             _idProducto = 0;
-            _fechaAgregadoACarrito = null;
+            _fechaAgregadoACarrito = new DateTime(2014,10,23);
         }
 
         public int IdCarrito{
@@ -29,7 +29,7 @@ namespace TiendaJoyas.Models
         public int IdProducto{
             get{return _idProducto;}
         }
-        public int FechaAgregadoACarrito{
+        public DateTime FechaAgregadoACarrito{
             get{return _fechaAgregadoACarrito;}
         }
     }

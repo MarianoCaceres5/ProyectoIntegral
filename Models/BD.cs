@@ -7,11 +7,11 @@ using System.Collections.Generic;
 using System.Data.SqlClient;
 using Dapper;
 
-namespace PreguntadORT.Models{    
+namespace TiendaJoyas.Models{    
     public class BD{        
         private static string server = Dns.GetHostName();
         private static string _connectionString = @$"Server={server};DataBase=TIENDAJOYAS;Trusted_Connection=True;";  
-
+        
         public static List<Producto> ObtenerProductos(){
             List<Producto> listaProductos = new List<Producto>();
             string SQL = "SELECT * FROM Productos";

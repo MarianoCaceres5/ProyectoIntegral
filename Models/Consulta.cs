@@ -17,7 +17,7 @@ namespace TiendaJoyas.Models
         }
         public Consulta(){
             _idUsuario = 0;
-            _fechaConsulta = null;
+            _fechaConsulta = new DateTime(2014,10,23);
             _descripcionConsulta = "";
         }
 
