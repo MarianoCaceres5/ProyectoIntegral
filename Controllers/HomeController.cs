@@ -37,6 +37,15 @@ public class HomeController : Controller
         return View();
     }
 
+    public IActionResult Carrito(){
+        ViewBag.Carrito = Tienda.ObtenerCarrito();
+        return View();
+    }
+
+    public List<Producto> MostrarProductosPorCategoria(int IdCategoria){
+        return Tienda.ObtenerProductosPorCategoria(IdCategoria);
+    }
+
     public IActionResult Privacy()
     {
         return View();

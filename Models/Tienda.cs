@@ -7,18 +7,7 @@ using System.Timers;
 
 namespace ProyectoIntegral.Models{
 
-    public static class Tienda{        
-        private static List<Producto> _productos = new List<Producto>();
-        private static List<Carrito> _carrito = new List<Carrito>();        
-        
-
-        public static List<Producto> Productos{
-            get{return _productos;}            
-        }
-
-        public static List<Carrito> Carrito{
-            get{return _carrito;}
-        }     
+    public static class Tienda{                
 
         public static List<Categoria> ObtenerCategorias(){
             return BD.ObtenerCategorias();
@@ -26,6 +15,21 @@ namespace ProyectoIntegral.Models{
         public static List<Producto> ObtenerProductos(){
             return BD.ObtenerProductos();
         }            
+
+        public static List<Carrito> ObtenerCarrito(){
+            return BD.ObtenerCarrito();
+        }
+
+        public static List<Producto> ObtenerProductosPorCategoria(int IdCategoria){
+            List<Producto> listaProductos = BD.ObtenerProductos();
+            List<Producto> listaProductosPorCategoria = new List<Producto>();
+            foreach(Producto prod in listaProductos){
+                if(prod.IdCategoria == IdCategoria){
+                    listaProductosPorCategoria.Add(prod);
+                }
+            }
+            return listaProductosPorCategoria;
+        }
 
     }
 }

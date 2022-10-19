@@ -6,7 +6,7 @@
     <div class="banner1 d-flex justify-content-center">
         <p class="mt-2">TIENDA ONLINE CON ENVIO A TODO EL PAIS</p>
     </div>      
-    <img src="/Imagenes/image.png" alt="" width="100%">   
+    <img src="/Imagenes/image.png" class="shadow" alt="" width="100%">   
 
 </div>
 
@@ -17,14 +17,37 @@
         <div class="col-sm d-flex justify-content-center">     
             @foreach(Categoria cat in @ViewBag.Categorias){      
             <div class="card text-center" style="width: 20%;"> 
-                <a href=""><img class="card-img-top imgCategoria" src="@cat.FotoCategoria" alt="Card image cap"></a>
+                <a><img onclick="MostrarProductosPorCategoria(@cat.IdCategoria)" class="card-img-top imgCategoria" src="@cat.FotoCategoria" alt="Card image cap"></a>
                 <div class="card-body">
-                    <a href="" style="text-decoration:none;"><h5 class="h5">@cat.NombreCategoria</h5></a>
+                    <a style="text-decoration:none;"><h5 class="h5" onclick="MostrarProductosPorCategoria(@cat.IdCategoria)">@cat.NombreCategoria</h5></a>
                 </div>
             </div> 
-            }
-            
+            }            
               
         </div>        
     </div>
+
+<div style="display: none;" class="divProductos">
+    <h3 class="text-center mt-5">Nuestros productos</h3>
+
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner listaProductos">
+            
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+    
+</div>
  
