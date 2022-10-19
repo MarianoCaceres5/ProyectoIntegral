@@ -1,4 +1,4 @@
-namespace TiendaJoyas.Models;
+namespace ProyectoIntegral.Models;
 
 public class ErrorViewModel
 {

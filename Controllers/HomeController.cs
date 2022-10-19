@@ -1,39 +1,39 @@
-﻿using System.Diagnostics;
+﻿using System.Timers;
+using System;
+using System.Net;
+using System.ComponentModel.Design;
+using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
-using TiendaJoyas.Models;
+using ProyectoIntegral.Models;
+using System.Linq.Expressions;
+using System.IO;
+using Microsoft.AspNetCore.Hosting;
 
-namespace TiendaJoyas.Controllers;
+namespace ProyectoIntegral.Controllers;
 
 public class HomeController : Controller
 {
+    private IWebHostEnvironment Environment;
     private readonly ILogger<HomeController> _logger;
-
-    public HomeController(ILogger<HomeController> logger)
-    {
-        _logger = logger;
+    public HomeController(IWebHostEnvironment _environment)
+    {        
+        Environment = _environment;
     }
 
     public IActionResult Index()
-    {
-        return View("Login");
+    {        
+        ViewBag.Categorias = Tienda.ObtenerCategorias();       
+        ViewBag.Productos = Tienda.ObtenerProductos(); 
+        return View();
     }    
-    public IActionResult Inicio()
-    {
+
+    public IActionResult Productos(){
+        ViewBag.Categorias = Tienda.ObtenerCategorias();       
+        ViewBag.Productos = Tienda.ObtenerProductos(); 
         return View();
     }
 
-    public IActionResult Productos()
-    {
-        return View();
-    }
-
-    public IActionResult Contacto()
-    {
-        return View();
-    }
-
-    public IActionResult Carrito()
-    {
+    public IActionResult Contacto(){
         return View();
     }
 

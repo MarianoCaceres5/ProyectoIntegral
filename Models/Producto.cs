@@ -1,9 +1,9 @@
+using System.Dynamic;
+using Microsoft.VisualBasic.CompilerServices;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
-namespace TiendaJoyas.Models
+namespace ProyectoIntegral.Models
 {
     public class Producto
     {
@@ -29,29 +29,33 @@ namespace TiendaJoyas.Models
 
         public int IdProducto{
             get{return _idProducto;}
+            set{_idProducto = value;}
         }
 
         public string NombreProducto{
             get{return _nombreProducto;}
+            set{_nombreProducto = value;}
         }
         public int PrecioProducto{
             get{return _precioProducto;}
+            set{_precioProducto = value;}
         }
         public int IdCategoria{
             get{return _idCategoria;}
+            set{_idCategoria = value;}
         }
         public string FotoProducto{
             get{return _fotoProducto;}
+            set{_fotoProducto = value;}
         }
         public string MaterialProducto{
             get{return _materialProducto;}
+            set{_materialProducto = value;}
         }
         public string DescripcionProducto{
             get{return _descripcionProducto;}
+            set{_descripcionProducto = value;}
         }
-
-
-
 
     }
 }
