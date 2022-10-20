@@ -92,20 +92,49 @@ a h5{
   margin: auto;
 }
 
-.containerFotoProducto {
-  position: relative;
+
+#contenedor{
+  border: 3px solid black;
+  justify-content: center;
 }
 
-:hover .containerFotoProducto{
-  
+.FotoProducto {
+  position: relative;
+  width:90%;
+  height:auto;
+  text-align: center;
+  object-fit: cover;
+  border: 3px solid black  ;
 }
 
 .centerr {
   position: absolute;
-  top: 60%;
-  width: 100%;
-  text-align: center;
+  top: 46%;
+  right: 33px;
+  width: 80%;  
+  height: 15%;
   font-size: 18px;
+  margin: auto;
+  padding-top: 20px;
+  background-color: black;
+  color: white;
+  border-radius: 0%;
+  text-align: center;  
+   
+}
+
+#boton{
   display: none;
 }
 
+#contenedor:hover > #boton{
+  display: block;
+}
+
+.flex-container{
+  display: flex;
+}
+
+.flex-item{
+  flex: 1;
+}

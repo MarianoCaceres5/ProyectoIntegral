@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "7DO0RZAFUS0HbFlAiSjLguyTtB8yv/WlvwCMDapBzLLw/HUinz66U2cREJnoXXlp3WSBNk0HkzbTK+BoKf5gwg==",
+  "dgSpecHash": "ioV+EQzNL2zNlW6PXxDHOrqXaYMV/8/IRnxCrj7Vs2T1y+qEJP4p4c8AbGCr+xbJAsQZxEhRiqIFPuW1fHctdw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Nano\\Desktop\\ddsa\\ProyectoIntegral\\ProyectoIntegral.csproj",
+  "projectFilePath": "D:\\2022\\Programacion\\ProyectoIntegral\\ProyectoIntegral.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Nano\\.nuget\\packages\\dapper\\2.0.90\\dapper.2.0.90.nupkg.sha512",
     "C:\\Users\\Nano\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
