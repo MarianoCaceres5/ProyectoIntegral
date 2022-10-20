@@ -21,14 +21,22 @@ namespace ProyectoIntegral.Models{
         }
 
         public static List<Producto> ObtenerProductosPorCategoria(int IdCategoria){
-            List<Producto> listaProductos = BD.ObtenerProductos();
+            List<Producto> listaProductos = BD.ObtenerProductosOrdenadosPorPrecio(IdCategoria);
             List<Producto> listaProductosPorCategoria = new List<Producto>();
-            foreach(Producto prod in listaProductos){
+            /*foreach(Producto prod in listaProductos){                
                 if(prod.IdCategoria == IdCategoria){
                     listaProductosPorCategoria.Add(prod);
                 }
-            }
-            return listaProductosPorCategoria;
+            }       */
+
+
+
+            //return listaProductosPorCategoria;
+            return listaProductos;
+        }
+
+        public static Producto ObtenerProductoSeleccionado(int IdProducto){
+            return BD.ObtenerProductoSeleccionado(IdProducto);
         }
 
     }

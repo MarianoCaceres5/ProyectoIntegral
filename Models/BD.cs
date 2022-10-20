@@ -12,7 +12,7 @@ namespace ProyectoIntegral.Models{
     public class BD{        
 
         private static string server = Dns.GetHostName();
-        private static string _connectionString = @$"Server={server}\SQLEXPRESS;DataBase=ProyectoIntegral;Trusted_Connection=True;";        
+        private static string _connectionString = @$"Server={server};DataBase=ProyectoIntegral;Trusted_Connection=True;";        
 
         public static List<Categoria> ObtenerCategorias(){
             List<Categoria> listaCategorias = new List<Categoria>();
@@ -22,11 +22,29 @@ namespace ProyectoIntegral.Models{
             }
             return listaCategorias;
         }
+        public static Producto ObtenerProductoSeleccionado(int IdProducto){
+            Producto productoSeleccionado = new Producto();
+            string SQL = "SELECT * FROM Productos where IdProducto = @pIdProducto";
+            using(SqlConnection db = new SqlConnection(_connectionString)){
+                productoSeleccionado = db.QueryFirstOrDefault<Producto>(SQL, new{pIdProducto = IdProducto});                
+            }
+            return productoSeleccionado;
+        }    
+
         public static List<Producto> ObtenerProductos(){
             List<Producto> listaProductos = new List<Producto>();
             string SQL = "SELECT * FROM Productos";
             using(SqlConnection db = new SqlConnection(_connectionString)){
                 listaProductos = db.Query<Producto>(SQL).ToList();
+            }
+            return listaProductos;
+        }    
+
+        public static List<Producto> ObtenerProductosOrdenadosPorPrecio(int IdCategoria){
+            List<Producto> listaProductos = new List<Producto>();
+            string SQL = "SELECT TOP 5 * FROM Productos where IdCategoria = @pIdCategoria order by PrecioProducto desc";
+            using(SqlConnection db = new SqlConnection(_connectionString)){
+                listaProductos = db.Query<Producto>(SQL, new{pIdCategoria = IdCategoria}).ToList();
             }
             return listaProductos;
         }    

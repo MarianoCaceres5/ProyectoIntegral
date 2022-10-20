@@ -46,6 +46,10 @@ public class HomeController : Controller
         return Tienda.ObtenerProductosPorCategoria(IdCategoria);
     }
 
+    public Producto ModalProducto(int IdProducto){
+        return BD.ObtenerProductoSeleccionado(IdProducto);
+    }
+
     public IActionResult Privacy()
     {
         return View();
