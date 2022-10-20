@@ -487,11 +487,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "d:\\2022\\Programacion\\ProyectoIntegral\\ProyectoIntegral.csproj",
+      "projectUniqueName": "C:\\Users\\Nano\\Desktop\\ddsa\\ProyectoIntegral\\ProyectoIntegral.csproj",
       "projectName": "ProyectoIntegral",
-      "projectPath": "d:\\2022\\Programacion\\ProyectoIntegral\\ProyectoIntegral.csproj",
+      "projectPath": "C:\\Users\\Nano\\Desktop\\ddsa\\ProyectoIntegral\\ProyectoIntegral.csproj",
       "packagesPath": "C:\\Users\\Nano\\.nuget\\packages\\",
-      "outputPath": "d:\\2022\\Programacion\\ProyectoIntegral\\obj\\",
+      "outputPath": "C:\\Users\\Nano\\Desktop\\ddsa\\ProyectoIntegral\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Nano\\AppData\\Roaming\\NuGet\\NuGet.Config",

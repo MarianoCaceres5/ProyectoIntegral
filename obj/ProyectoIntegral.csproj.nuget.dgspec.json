@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\2022\\Programacion\\ProyectoIntegral\\ProyectoIntegral.csproj": {}
+    "C:\\Users\\Nano\\Desktop\\ddsa\\ProyectoIntegral\\ProyectoIntegral.csproj": {}
   },
   "projects": {
-    "D:\\2022\\Programacion\\ProyectoIntegral\\ProyectoIntegral.csproj": {
+    "C:\\Users\\Nano\\Desktop\\ddsa\\ProyectoIntegral\\ProyectoIntegral.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\2022\\Programacion\\ProyectoIntegral\\ProyectoIntegral.csproj",
+        "projectUniqueName": "C:\\Users\\Nano\\Desktop\\ddsa\\ProyectoIntegral\\ProyectoIntegral.csproj",
         "projectName": "ProyectoIntegral",
-        "projectPath": "D:\\2022\\Programacion\\ProyectoIntegral\\ProyectoIntegral.csproj",
+        "projectPath": "C:\\Users\\Nano\\Desktop\\ddsa\\ProyectoIntegral\\ProyectoIntegral.csproj",
         "packagesPath": "C:\\Users\\Nano\\.nuget\\packages\\",
-        "outputPath": "D:\\2022\\Programacion\\ProyectoIntegral\\obj\\",
+        "outputPath": "C:\\Users\\Nano\\Desktop\\ddsa\\ProyectoIntegral\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Nano\\AppData\\Roaming\\NuGet\\NuGet.Config",
