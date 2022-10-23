@@ -1,3 +1,106 @@
 @{
     ViewData["Title"] = "Tienda";
 }
+
+<div class="wrap">
+    <div class="wrap-texto">
+      <h2>JOYAS</h2>      
+    </div>
+</div>
+
+<div class="flex-container container">
+
+    <div class="flex-item1">
+        <h4>Categorias</h4>
+        <button style="background-color: white; border:none; color: grey; margin-top:10px;">TODAS</button>
+        @foreach (Categoria cat in ViewBag.Categorias)
+        {
+            <div style="">
+                <button style="background-color: white; border:none; color: grey; margin-top:10px;">@cat.NombreCategoria</button>
+                <div style="margin-left: 20px; margin-top:10px;">
+                    <div>
+                        <button style="background-color: white; border:none; color: grey;">Oro</button>
+                    </div>
+                    <div>
+                        <button style="background-color: white; border:none; color: grey;">Plata</button>
+                    </div>
+                    <div>
+                        <button style="background-color: white; border:none; color: grey;">Bronce</button>
+                    </div>        
+                    
+                </div>
+            </div>
+            
+        }
+    </div>
+
+
+    <div class="flex-item2 productos mt-5 divProductos">
+        <div class="row mb-4 container justify-content-center" id="listaProductos">
+            @foreach (Producto prod in @ViewBag.Productos)
+            {           
+                <div class="col-sm d-flex mb-3 justify-content-center">
+                    <div class="p-3 contenedor card cardd mb-4" style="">
+                        <div class="text-center" id="contenedor" onclick="MostrarProducto(@prod.IdProducto)">
+                            <img src="@prod.FotoProducto" class="FotoProducto card-img-top p-4 flex-item">
+                            <div class="centerr btn btn-outline-secondary" id="boton">DETALLE</div>
+                        </div>
+                        <div class="card-body mt-3">
+                            <h4 class="card-title mb-1 text-dark" onclick="MostrarProducto('+ producto.idProducto +')">@prod.NombreProducto</h4>
+                            <h5 class="mb-3 text-dark">$@prod.PrecioProducto<span style="color:grey"> o en dos cuotas de <span style="color:gold"> $@(@prod.PrecioProducto/2)</span></span></h5>
+                        </div>                
+                    </div>
+                </div>
+            }
+        </div>  
+    </div>
+
+</div>
+
+<div class="modal" id="modalProducto">
+    <div class="modal-content" style="border: none;">
+
+        <button class="cerrarModal" onclick='$("#modalProducto").hide()'>&times;</button>              
+        
+        <div class="" style="margin-top: 2%;">
+            <div class="flex-container d-flex align-items-center">            
+                <div id="FotoProducto" class="flex-item2" style="">
+                    
+                </div>
+                <div id="DescripcionProducto" class="flex-item2" style="margin-left: 20px;">
+                    
+                </div>
+            </div>
+            
+        </div>
+
+        <div class="productos mt-1 divProductos">
+            <h4 class="text-center mb-5">Productos similares</h4>
+            <div class="row mb-4 container justify-content-center" id="listaProductos">
+                @for (int i = 0; i < 4; i++)
+                {
+                    <div class="col d-flex mb-3 justify-content-center">
+                        <div class="p-3 contenedor card cardd mb-4" style="">
+                            <div class="text-center" id="contenedor" onclick="MostrarProducto(@ViewBag.Productos[i].IdProducto)">
+                                <img src="@ViewBag.Productos[i].FotoProducto" class="FotoProducto card-img-top p-4 flex-item">
+                                <div class="centerr btn btn-outline-secondary" id="boton">DETALLE</div>
+                            </div>
+                            <div class="card-body mt-3">
+                                <h4 class="card-title mb-1 text-dark" onclick="MostrarProducto('+ @ViewBag.Productos[i].IdProducto +')">@ViewBag.Productos[i].NombreProducto</h4>
+                                <h5 class="mb-3 text-dark">$@ViewBag.Productos[i].PrecioProducto<span style="color:grey"> o en dos cuotas de <span style="color:gold"> $@(@ViewBag.Productos[i].PrecioProducto/2)</span></span></h5>
+                            </div>                
+                        </div>
+                    </div>
+                    
+                }
+                
+            </div>  
+        </div>
+        
+        
+    </div>       
+</div>
+    
+
+
+

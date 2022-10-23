@@ -4,13 +4,36 @@
 }
 
 html {
-  font-size: 14px;  
+  scroll-behavior: smooth;
+  font-size: 14px;    
 }
 
 @media (min-width: 768px) {
   html {
     font-size: 16px;
   }
+}
+
+.container{
+  margin-top: 5%;
+}
+
+.flex-container{
+  display: flex;
+}
+
+.flex-item1{
+  flex: 0.2;
+  margin-right: 50px;
+}
+
+.flex-item2{
+  flex: 1;
+}
+
+.nav-link{  
+  font-size: 14px;
+  color: red;
 }
 
 .fondoNegro{
@@ -90,7 +113,7 @@ a h5{
 
 
 .cardd{
-  border-top: 0.8px solid black;
+  border-top: 1px solid gray;
   border-color: black;   
   width: 250px; 
   height:350px; 
@@ -115,7 +138,8 @@ a h5{
   position: absolute;
   top: 46%;
   right: 33px;
-  width: 80%;  
+  left: 5%;
+  width: 90%;  
   height: 15%;
   font-size: 18px;
   margin: auto;
@@ -131,7 +155,7 @@ a h5{
   display: none;
 }
 
-#contenedor:hover > #boton{
+.card:hover > #contenedor #boton{
   display: block;
 }
 
@@ -145,10 +169,10 @@ a h5{
 
 .modal{
   display: none;
-  background-color: red;
-  width: 50%;
-  height: 60%;
-  border: 2px solid #E1CFFF;;
+  background-color: white;
+  width: 80%;
+  height: 95%;
+  border-radius: 10px;
 
   position: fixed;
   top: 50%;
@@ -156,4 +180,62 @@ a h5{
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
   filter: drop-shadow(0 0 15px rgba(0, 0, 0, .5));
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+.cerrarModal{
+  
+  margin-top:0; 
+  margin-left: 93%;
+  background-color: white;
+  border: none;
+  font-size: 40px;
+  color: gray;
+}
+
+.cerrarModal:hover{
+  color: black;
+}
+
+.agregarCarrito {  
+  
+  width: 90%;  
+  height:100%;
+  font-size: 18px;  
+  padding-top: 6px;
+  background-color: black;
+  color: white;
+  border-radius: 0%;
+  text-align: center;  
+     
+}
+
+.wrap{
+  width: 100%;
+  height: 200px;
+  display: flex;
+  align-items: end;
+  justify-content: center;
+  align-items: center;
+  background: url("/Imagenes/banerjoyas.jpg");  
+  opacity: 0.5;
+  background-size: cover;
+  background-position: center;
+}
+
+.wrap-texto{
+  color: rgb(0, 0, 0);  
+  align-items: end;
+  justify-content: center;
+  text-align: center;
+  width: 50%;  
+  margin-top: 70px;   
+  
+}
+
+.col{
+  width: 200px;
 }

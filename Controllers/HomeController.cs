@@ -1,4 +1,5 @@
-﻿using System.Timers;
+﻿using System.Collections.Generic;
+using System.Timers;
 using System;
 using System.Net;
 using System.ComponentModel.Design;
@@ -48,6 +49,24 @@ public class HomeController : Controller
 
     public Producto ModalProducto(int IdProducto){
         return BD.ObtenerProductoSeleccionado(IdProducto);
+    }
+
+    public void AgregarAlCarrito (int IdProducto){
+        bool carritoActualizado = false;
+        List<Carrito> carritos = BD.ObtenerCarrito();
+        foreach(Carrito carr in carritos){
+            if(IdProducto == carr.IdProducto){
+                BD.ActualizarCarrito(IdProducto, (carr.CantidadUnidades+1));
+                carritoActualizado = true;
+            }
+        }
+        if(carritoActualizado == false){
+            DateTime fechaAgregado = DateTime.Now;        
+            int CantUnidades = 1;
+            Carrito carrito = new Carrito(IdProducto, fechaAgregado, CantUnidades);
+            BD.AgregarAlCarrito(carrito);
+        }
+        
     }
 
     public IActionResult Privacy()

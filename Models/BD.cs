@@ -12,7 +12,7 @@ namespace ProyectoIntegral.Models{
     public class BD{        
 
         private static string server = Dns.GetHostName();
-        private static string _connectionString = @$"Server={server};DataBase=ProyectoIntegral;Trusted_Connection=True;";        
+        private static string _connectionString = @$"Server={server}\SQLEXPRESS;DataBase=ProyectoIntegral;Trusted_Connection=True;";        
 
         public static List<Categoria> ObtenerCategorias(){
             List<Categoria> listaCategorias = new List<Categoria>();
@@ -78,6 +78,13 @@ namespace ProyectoIntegral.Models{
             string SQL = "DELETE FROM Carritos WHERE IdProducto = @pIdProducto";
             using(SqlConnection db = new SqlConnection(_connectionString)){
                 db.Execute(SQL, new{pIdProducto = IdProducto});
+            }
+        }    
+
+        public static void ActualizarCarrito(int IdProducto, int CantidadUnidades){
+            string SQL = "UPDATE Carritos set CantidadUnidades = @pCantidadUnidades WHERE IdProducto = @pIdProducto";
+            using(SqlConnection db = new SqlConnection(_connectionString)){
+                db.Execute(SQL, new{pCantidadUnidades = CantidadUnidades, pIdProducto = IdProducto});
             }
         }    
 
