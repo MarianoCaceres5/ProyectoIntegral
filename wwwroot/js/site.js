@@ -44,7 +44,7 @@ function MostrarProducto(idP){
                 $('.modal').show();
                 $('#FotoProducto').html('<img src="'+resp.fotoProducto + '" width="100%" height="auto" class="">')
                 $('#DescripcionProducto').html('<h4 style="color:gray;">'+resp.materialProducto + ' </h4> <h2>'+resp.nombreProducto + ' </h2> <h2>$'+resp.precioProducto + ',00 </h2> <h4 style="margin-top:10px; color:gray;" >En 2 cuotas sin interés de <span style="color:green;">$'+resp.precioProducto / 2 + '</span> </h4> <h6 style="margin-top:20px; color:gray;">'+resp.descripcionProducto + ' </h6> <button onclick="AgregarAlCarrito('+ resp.idProducto +')" class="agregarCarrito btn btn-outline-secondary mt-3">AGREGAR AL CARRITO</button>');                                       
-                
+                $('.divProductos').show();
 
             },
         error:

@@ -13,7 +13,21 @@ namespace ProyectoIntegral.Models{
             return BD.ObtenerCategorias();
         }            
         public static List<Producto> ObtenerProductos(){
-            return BD.ObtenerProductos();
+            
+            Random random = new Random();       
+            int indiceAleatorio;
+
+            List<Producto> listaProductos = BD.ObtenerProductos();
+            int longitudLista = listaProductos.Count();
+
+            for(int i = 0; i < longitudLista; i++){
+                indiceAleatorio = random.Next(0,longitudLista);
+                Producto temporal = listaProductos[indiceAleatorio];
+                listaProductos[indiceAleatorio] = listaProductos[i];
+                listaProductos[i] = temporal;         
+            }  
+            return listaProductos;
+
         }            
 
         public static List<Carrito> ObtenerCarrito(){

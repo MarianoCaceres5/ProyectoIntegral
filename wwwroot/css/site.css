@@ -113,12 +113,22 @@ a h5{
 
 
 .cardd{
-  border-top: 1px solid gray;
-  border-color: black;   
+  border-top: 1px solid gray;    
   width: 250px; 
   height:350px; 
   border-radius: 0%;
+  
     
+}
+
+.card:hover{
+  
+  border-top: 3px solid gold;    
+  width: 250px; 
+  height:350px; 
+  border-radius: 0%;
+  
+  
 }
 
 
