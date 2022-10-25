@@ -40,6 +40,15 @@ namespace ProyectoIntegral.Models{
             return listaProductos;
         }    
 
+        public static List<Producto> BuscarProductos(string Busqueda){
+            List<Producto> listaProductos = new List<Producto>();
+            string SQL = "SELECT * FROM Productos where NombreProducto like @pBusqueda";
+            using(SqlConnection db = new SqlConnection(_connectionString)){
+                listaProductos = db.Query<Producto>(SQL, new{pBusqueda = Busqueda}).ToList();
+            }
+            return listaProductos;
+        }    
+
         public static List<Producto> ObtenerProductosOrdenadosPorPrecio(int IdCategoria){
             List<Producto> listaProductos = new List<Producto>();
             string SQL = "SELECT TOP 5 * FROM Productos where IdCategoria = @pIdCategoria order by PrecioProducto desc";

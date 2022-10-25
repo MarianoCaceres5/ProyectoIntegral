@@ -4,28 +4,40 @@
 
 <div class="wrap">
     <div class="wrap-texto">
-      <h2>JOYAS</h2>      
+      <h2>JOYAS</h2>    
+      
     </div>
 </div>
 
-<div class="flex-container container" style="margin-bottom: 20px;">
+<div class="d-flex justify-content-center">
+    <div class="buscador container">
+        
+        <input class="form-control" id="ingresoBusqueda"  type="" placeholder="Buscar Pieza:" aria-label="Search" autocomplete="off">
+        <span class="material-symbols-outlined" onclick="BuscarProductos($('#ingresoBusqueda').val())">search</span>
+        
+    </div>
+
+</div>
+
+
+<div class="flex-container container" style="margin-bottom: 100px;">
 
     <div class="flex-item1">
-        <h4>Categorias</h4>
-        <button style="background-color: white; border:none; color: grey; margin-top:10px;">TODAS</button>
+        <h4>Categoria</h4>
+        <button style="background-color: white; border:none; color: grey; margin-top:10px;" onclick="BuscarProductos()">TODAS</button>
         @foreach (Categoria cat in ViewBag.Categorias)
         {
             <div style="">
-                <button style="background-color: white; border:none; color: grey; margin-top:10px;">@cat.NombreCategoria</button>
-                <div style="margin-left: 20px; margin-top:10px;">
+                <button style="background-color: white; border:none; color: grey; margin-top:10px;" onclick="MostrarProductosPorCategoria(@cat.IdCategoria)">@cat.NombreCategoria</button>
+                <div class="@cat.IdCategoria" style="margin-left: 20px; margin-top:10px; display:none;">
                     <div>
-                        <button style="background-color: white; border:none; color: grey;">Oro</button>
+                        <button style="background-color: white; border:none; color: grey;" onclick="FiltrarPorMaterial('Oro')">Oro</button>
                     </div>
                     <div>
-                        <button style="background-color: white; border:none; color: grey;">Plata</button>
+                        <button style="background-color: white; border:none; color: grey;" onclick="FiltrarPorMaterial('Plata')">Plata</button>
                     </div>
                     <div>
-                        <button style="background-color: white; border:none; color: grey;">Bronce</button>
+                        <button style="background-color: white; border:none; color: grey;" onclick="FiltrarPorMaterial('Bronce')">Bronce</button>
                     </div>        
                     
                 </div>
@@ -39,7 +51,7 @@
         <div class="row mb-4 container justify-content-center" id="listaProductos">
             @foreach (Producto prod in @ViewBag.Productos)
             {           
-                <div class="col-sm d-flex mb-3 justify-content-center">
+                <div class="col-sm d-flex mb-3 justify-content-center" id="@prod.IdProducto">
                     <div class="p-3 contenedor card cardd mb-4" style="">
                         <div class="text-center" id="contenedor" onclick="MostrarProducto(@prod.IdProducto)">
                             <img src="@prod.FotoProducto" class="FotoProducto card-img-top p-4 flex-item">

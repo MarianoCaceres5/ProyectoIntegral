@@ -69,6 +69,11 @@ public class HomeController : Controller
         
     }
 
+    public List<Producto> BuscarProductos(string Busqueda){
+        Busqueda = '%' + Busqueda + '%';
+        return BD.BuscarProductos(Busqueda);
+    }
+
     public IActionResult Privacy()
     {
         return View();

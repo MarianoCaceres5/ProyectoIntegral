@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "54VEBlxYu+MNuKpr6j3K0vYsxl31nxVckKKz7gF9iEw=",
+  "Hash": "g2ixZCKprAvAzjs/kRQOpMX0D9AN6KXG6dkSaMJLzOs=",
   "Source": "ProyectoIntegral",
   "BasePath": "_content/ProyectoIntegral",
   "Mode": "Default",
@@ -117,6 +117,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Imagenes\\banerjoyas.jpg"
+    },
+    {
+      "Identity": "D:\\2022\\Programacion\\ProyectoIntegral\\wwwroot\\Imagenes\\banerjoyas2.png",
+      "SourceId": "ProyectoIntegral",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\2022\\Programacion\\ProyectoIntegral\\wwwroot\\",
+      "BasePath": "_content/ProyectoIntegral",
+      "RelativePath": "Imagenes/banerjoyas2.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Imagenes\\banerjoyas2.png"
     },
     {
       "Identity": "D:\\2022\\Programacion\\ProyectoIntegral\\wwwroot\\Imagenes\\bannerjoyas.png",

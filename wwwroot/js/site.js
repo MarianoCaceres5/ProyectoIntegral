@@ -3,7 +3,10 @@
 
 // Write your JavaScript code.
 
+var IdCategoria = -1;
+
 function MostrarProductosPorCategoria(idC){
+
     $.ajax({
 
         url: '/Home/MostrarProductosPorCategoria',
@@ -11,8 +14,15 @@ function MostrarProductosPorCategoria(idC){
         type:'POST',
         dataType:'JSON',            
         success:
-            function (resp){                       
-                                
+            function (resp){  
+                
+                if(IdCategoria == idC){
+                    $('.'+idC).hide();  
+                }else{
+                    $('.'+idC).show();  
+                }
+                IdCategoria = idC;
+                                              
                 $('.divProductos').show();
                 $('#listaProductos').html(' ');
                 resp.forEach(producto => {
@@ -27,9 +37,11 @@ function MostrarProductosPorCategoria(idC){
                 console.log('error');
             }
 
-    });
+    });    
+    
 }
 
+//
 
 function MostrarProducto(idP){
     $.ajax({
@@ -55,6 +67,8 @@ function MostrarProducto(idP){
     });
 }
 
+//
+
 function AgregarAlCarrito(idP){
     
     $.ajax({
@@ -75,6 +89,68 @@ function AgregarAlCarrito(idP){
             function(){
                 console.log('error');
                 
+            }
+
+    });
+}
+
+//
+
+function BuscarProductos(busqueda){   
+
+    $.ajax({
+
+        url: '/Home/BuscarProductos',
+        data: {Busqueda: busqueda},
+        type:'POST',
+        dataType:'JSON',            
+        success:
+            function (resp){                 
+                
+
+                $('#listaProductos').html('');
+                resp.forEach(producto => {
+                    $('#listaProductos').append('<div class="col-sm d-flex mb-3 justify-content-center"><div class="p-3 contenedor card cardd mb-4" style=""> <div class="text-center" id="contenedor" onclick="MostrarProducto('+ producto.idProducto +')"> <img src="'+producto.fotoProducto + '" class="FotoProducto card-img-top p-4 flex-item"> <div class="centerr btn btn-outline-secondary" id="boton">DETALLE</div></div> <div class="card-body mt-3"> <h4 class="card-title mb-1 text-dark" onclick="MostrarProducto('+ producto.idProducto +')">' + producto.nombreProducto +'</h4>  <h5 class="mb-3 text-dark"> $' + producto.precioProducto +'<span style="color:grey"> o en dos cuotas de <span style="color:gold">$' + producto.precioProducto / 2   + '</span></span></h5>  </div></div></div>');
+                });
+                
+
+            },
+        error:
+            function(){
+                console.log('error');
+            }
+
+    });
+
+}
+
+//
+
+function FiltrarPorMaterial(material){
+    $.ajax({
+
+        url: '/Home/MostrarProductosPorCategoria',
+        data: {IdCategoria: IdCategoria},
+        type:'POST',
+        dataType:'JSON',            
+        success:
+            function (resp){                       
+                                
+                $('.divProductos').show();
+                $('#listaProductos').html(' ');
+                resp.forEach(producto => {
+                    
+                    if(producto.materialProducto == material){
+                        $('#listaProductos').append('<div class="col-sm d-flex mb-3 justify-content-center"><div class="p-3 contenedor card cardd mb-4" style=""> <div class="text-center" id="contenedor" onclick="MostrarProducto('+ producto.idProducto +')"> <img src="'+producto.fotoProducto + '" class="FotoProducto card-img-top p-4 flex-item"> <div class="centerr btn btn-outline-secondary" id="boton">DETALLE</div></div> <div class="card-body mt-3"> <h4 class="card-title mb-1 text-dark" onclick="MostrarProducto('+ producto.idProducto +')">' + producto.nombreProducto +'</h4>  <h5 class="mb-3 text-dark"> $' + producto.precioProducto +'<span style="color:grey"> o en dos cuotas de <span style="color:gold">$' + producto.precioProducto / 2   + '</span></span></h5>  </div></div></div>');
+                    }
+                    
+                });        
+            
+
+            },
+        error:
+            function(){
+                console.log('error');
             }
 
     });

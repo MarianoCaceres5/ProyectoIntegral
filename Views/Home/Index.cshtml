@@ -10,8 +10,7 @@
 
 </div>
 
-<section id="seccion-1" class="">
-    <div class="mb-5 mt-5">
+    <div class="mt-5">
         <div class="col-sm d-flex justify-content-center">     
             @foreach(Categoria cat in @ViewBag.Categorias){      
             <div class="card text-center" style="width: 20%;"> 
@@ -23,13 +22,11 @@
             }            
               
         </div>        
-    </div>        
-</section> 
-    
+    </div>            
 
 
-<div class="productos mt-5 divProductos" style="display: none;">
-    <h3 class="mt-5 mb-5 container text-center">Productos Destacados</h3>
+<div class="productos divProductos" style="display: none;">
+    <h3 class="mb-5 container text-center">Productos Destacados</h3>
     <div class="row mb-4 container justify-content-center" id="listaProductos">
     
     </div>
