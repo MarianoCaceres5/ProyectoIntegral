@@ -34,8 +34,15 @@ public class HomeController : Controller
         return View();
     }
 
-    public IActionResult Contacto(){
-        return View();
+    public IActionResult Contacto(){        
+        return View("Contacto");
+    }
+
+    public IActionResult GuardarConsulta(string NombreUsuario, string EmailUsuario, string DescripcionConsulta){
+        DateTime FechaConsulta = DateTime.Now;
+        Consulta consulta = new Consulta(NombreUsuario, FechaConsulta, DescripcionConsulta, EmailUsuario);
+        BD.AgregarConsulta(consulta);
+        return View("Contacto");
     }
 
     public IActionResult Carrito(){

@@ -67,11 +67,10 @@ namespace ProyectoIntegral.Models{
             return listaCarrito;
         }
 
-        public static void AgregarConsulta(Consulta consulta){
-
-            string SQL = "INSERT INTO Consultas(NombreUsuario, FechaConsulta, DescripcionConsulta) VALUES(@pNombreUsuario, @pFechaConsulta, @pDescripcionConsulta)";
+        public static void AgregarConsulta(Consulta consulta){            
+            string SQL = "INSERT INTO Consultas(NombreUsuario, FechaConsulta, DescripcionConsulta, EmailUsuario) VALUES(@pNombreUsuario, @pFechaConsulta, @pDescripcionConsulta, @pEmailUsuario)";
             using(SqlConnection db = new SqlConnection(_connectionString)){
-                db.Execute(SQL, new {pNombreUsuario = consulta.NombreUsuario, pFechaConsulta = consulta.FechaConsulta, pDescripcionConsulta = consulta.DescripcionConsulta});
+                db.Execute(SQL, new {pNombreUsuario = consulta.NombreUsuario, pFechaConsulta = consulta.FechaConsulta, pDescripcionConsulta = consulta.DescripcionConsulta, pEmailUsuario = consulta.EmailUsuario});
             }
 
         }

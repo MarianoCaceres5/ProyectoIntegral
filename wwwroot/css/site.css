@@ -16,6 +16,13 @@ html {
   }
 }
 
+
+@media (max-width: 768px) {
+
+  .flex-container {flex-wrap: wrap;}
+
+}
+
 .container{
   margin-top: 5%;
 }
@@ -287,4 +294,11 @@ a h5{
   color: gray;
   font-size: 20px;
   width:100%;
+}
+
+.input-form{
+  width: 90%;
+  padding: 10px;
+  border: 1px solid rgba(138, 138, 138, 0.236);
+  margin-bottom: 10px;
 }
