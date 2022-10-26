@@ -31,16 +31,28 @@
                                       
                     </ul>
                     
-                    <a href="nav-link text-dark"><img class="carrito" src="/Imagenes/carrito.png" alt=""></a>
+                    <a href="#" onclick="MostrarCarrito()"><img class="carritoLogo" src="/Imagenes/carrito.png" alt=""></a>
                 </div>
             </div>
         </nav>
     </header>
+    
     <div class="">
-        <main role="main" class="pb-3">
+        <main role="main" class="pb-3" onclick="$('.carrito').hide()">
+            
             @RenderBody()
+                        
         </main>
     </div>
+    <div class="d-flex justify-content-end">
+        <div class="carrito">
+            
+                                    
+            
+        </div>
+    </div>
+    
+
 
     <footer class="border-top footer text-muted">
         <div class="container">

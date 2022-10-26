@@ -45,9 +45,13 @@ public class HomeController : Controller
         return View("Contacto");
     }
 
-    public IActionResult Carrito(){
-        ViewBag.Carrito = Tienda.ObtenerCarrito();
-        return View();
+    public List<ProductoEnCarrito> ObtenerCarrito(){
+        return Tienda.ObtenerCarrito();        
+    }
+
+    public List<ProductoEnCarrito> EliminarDelCarrito(int IdProducto){
+        BD.EliminarDelCarrito(IdProducto);
+        return Tienda.ObtenerCarrito();   
     }
 
     public List<Producto> MostrarProductosPorCategoria(int IdCategoria){

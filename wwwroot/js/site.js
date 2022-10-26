@@ -27,7 +27,7 @@ function MostrarProductosPorCategoria(idC){
                 $('#listaProductos').html(' ');
                 resp.forEach(producto => {
                     //$('.listaProductos').append('<div class="carousel-item active"><img alt="' +producto.idProducto + '" class="d-block imgProductoCarousel" src="' + producto.fotoProducto + '"> <div class="carousel-caption d-none d-md-block"><h3 class="text-dark">' + producto.nombreProducto +'</h3></div></div> ')
-                    $('#listaProductos').append('<div class="col-sm d-flex mb-3 justify-content-center"><div class="p-3 contenedor card cardd mb-4" style=""> <div class="text-center" id="contenedor" onclick="MostrarProducto('+ producto.idProducto +')"> <img src="'+producto.fotoProducto + '" class="FotoProducto card-img-top p-4 flex-item"> <div class="centerr btn btn-outline-secondary" id="boton">DETALLE</div></div> <div class="card-body mt-3"> <h4 class="card-title mb-1 text-dark" onclick="MostrarProducto('+ producto.idProducto +')">' + producto.nombreProducto +'</h4>  <h5 class="mb-3 text-dark"> $' + producto.precioProducto +'<span style="color:grey"> o en dos cuotas de <span style="color:gold">$' + producto.precioProducto / 2   + '</span></span></h5>  </div></div></div>');
+                    $('#listaProductos').append('<div class="col-sm d-flex mb-3 justify-content-center align-items-center"><div class="p-3 contenedor card cardd mb-4" style=""> <div class="text-center" id="contenedor" onclick="MostrarProducto('+ producto.idProducto +')"> <img src="'+producto.fotoProducto + '" class="FotoProducto card-img-top p-4 flex-item"> <div class="centerr btn btn-outline-secondary" id="boton">DETALLE</div></div> <div class="card-body mt-3"> <h4 class="card-title mb-1 text-dark" onclick="MostrarProducto('+ producto.idProducto +')">' + producto.nombreProducto +'</h4>  <h5 class="mb-3 text-dark"> $' + producto.precioProducto +'<span style="color:grey"> o en dos cuotas de <span style="color:gold">$' + producto.precioProducto / 2   + '</span></span></h5>  </div></div></div>');
                 });        
             
 
@@ -80,8 +80,9 @@ function AgregarAlCarrito(idP){
         success:
             function (resp){        
                 
-                console.log("se agrego al carrito");   
-                console.log(cantUnidades);
+                
+                window.alert("Texto a mostrar");
+                
                               
                 
             },
@@ -151,6 +152,80 @@ function FiltrarPorMaterial(material){
         error:
             function(){
                 console.log('error');
+            }
+
+    });
+}
+
+//
+
+var carritoShow =0;
+
+function MostrarCarrito(){
+
+    var precioTotal = 0;
+
+    if(carritoShow == 0){
+        $('.carrito').html('');
+        $('.carrito').show();
+        carritoShow=1;
+    }else{
+        $('.carrito').html('');
+        $('.carrito').hide();
+        carritoShow=0;
+    }
+
+    $.ajax({
+
+        url: '/Home/ObtenerCarrito',        
+        type:'POST',
+        dataType:'JSON',            
+        success:
+            function (resp){           
+                $('.carrito').append('<h2 style="margin-top: 100px; margin-left:50px;" class="">carrito</h2>');
+                resp.forEach(productoCarrito => {            
+                    $('.carrito').append('<div class="flex-container productoCarrito mt-4"><div class="flex-item2" style="margin-left: 5px;"><h5>'+productoCarrito.producto.nombreProducto+'</h5> <h6 style="color:gray;">x'+productoCarrito.cantUnidades+'</h6></div><div class="flex-item2" style="margin-left: 5px;"><h5 style="color:green;">$'+productoCarrito.producto.precioProducto+'</h5></div><div class="flex-item2 btn btn-danger" onclick="EliminarDelCarrito('+productoCarrito.producto.idProducto+')" style="margin-left: 5px; height:10%;">X</div></div>');
+                    precioTotal = precioTotal + productoCarrito.producto.precioProducto;
+                });   
+                $('.carrito').append('<h3 class="text-center">TOTAL: $'+precioTotal+'</h3>');              
+            
+
+            },
+        error:
+            function(){
+                console.log('error');
+            }
+
+    });
+    
+}
+
+//
+
+function EliminarDelCarrito(idP){
+
+    var precioTotal = 0;
+    $('.carrito').html('');
+
+    $.ajax({
+        url: '/Home/EliminarDelCarrito',
+        data: {IdProducto: idP},
+        type:'POST',
+        dataType:'JSON',            
+        success:
+            function (resp){   
+                $('.carrito').append('<h2 style="margin-top: 100px; margin-left:50px;" class="">carrito</h2>');
+                resp.forEach(productoCarrito => {            
+                    $('.carrito').append('<div class="flex-container productoCarrito mt-4"><div class="flex-item2" style="margin-left: 5px;"><h5>'+productoCarrito.producto.nombreProducto+'</h5> <h6 style="color:gray;">x'+productoCarrito.cantUnidades+'</h6></div><div class="flex-item2" style="margin-left: 5px;"><h5 style="color:green;">$'+productoCarrito.producto.precioProducto+'</h5></div><div class="flex-item2 btn btn-danger" onclick="EliminarDelCarrito('+productoCarrito.producto.idProducto+')" style="margin-left: 5px; height:10%;">X</div></div>');
+                    precioTotal = precioTotal + productoCarrito.producto.precioProducto;
+                });   
+                $('.carrito').append('<h3 class="text-center">TOTAL: $'+precioTotal+'</h3>'); 
+                
+            },
+        error:
+            function(){
+                console.log('error');
+                
             }
 
     });

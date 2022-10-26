@@ -30,8 +30,23 @@ namespace ProyectoIntegral.Models{
 
         }            
 
-        public static List<Carrito> ObtenerCarrito(){
-            return BD.ObtenerCarrito();
+        public static List<ProductoEnCarrito> ObtenerCarrito(){
+            List<Carrito> carrito = BD.ObtenerCarrito();
+            List<Producto> listaProductos = ObtenerProductos();
+            List<ProductoEnCarrito> listaProductosCarrito = new List<ProductoEnCarrito>();          
+
+            foreach(Carrito car in carrito){
+                foreach(Producto prod in listaProductos){
+                    if(car.IdProducto == prod.IdProducto){  
+
+                        ProductoEnCarrito productoEnCarrito = new ProductoEnCarrito(prod, car.CantidadUnidades);
+                        listaProductosCarrito.Add(productoEnCarrito);
+                    }
+                }
+            }
+
+            return listaProductosCarrito;
+
         }
 
         public static List<Producto> ObtenerProductosPorCategoria(int IdCategoria){
