@@ -14,13 +14,10 @@ function MostrarProductosPorCategoria(idC){
         type:'POST',
         dataType:'JSON',            
         success:
-            function (resp){  
+            function (resp){                 
                 
-                if(IdCategoria == idC){
-                    $('.'+idC).hide();  
-                }else{
-                    $('.'+idC).show();  
-                }
+                $('.'+IdCategoria).hide();
+                $('.'+idC).show();                    
                 IdCategoria = idC;
                                               
                 $('.divProductos').show();
@@ -75,14 +72,13 @@ function AgregarAlCarrito(idP){
 
         url: '/Home/AgregarAlCarrito',
         data: {IdProducto: idP},
-        type:'POST',
-        dataType:'JSON',            
+        type:'POST',                    
         success:
-            function (resp){        
+            function (resp){                  
                 
-                
-                window.alert("Texto a mostrar");
-                
+                console.log("godeto")
+                $('.agregarCarrito').css('background-color', 'green');
+                $('.agregarCarrito').html('Agregado al carrito');
                               
                 
             },
@@ -164,13 +160,11 @@ var carritoShow =0;
 function MostrarCarrito(){
 
     var precioTotal = 0;
-
-    if(carritoShow == 0){
-        $('.carrito').html('');
+    $('.carrito').html(''); 
+    if(carritoShow == 0){        
         $('.carrito').show();
         carritoShow=1;
-    }else{
-        $('.carrito').html('');
+    }else{        
         $('.carrito').hide();
         carritoShow=0;
     }
@@ -187,7 +181,7 @@ function MostrarCarrito(){
                     $('.carrito').append('<div class="flex-container productoCarrito mt-4"><div class="flex-item2" style="margin-left: 5px;"><h5>'+productoCarrito.producto.nombreProducto+'</h5> <h6 style="color:gray;">x'+productoCarrito.cantUnidades+'</h6></div><div class="flex-item2" style="margin-left: 5px;"><h5 style="color:green;">$'+productoCarrito.producto.precioProducto+'</h5></div><div class="flex-item2 btn btn-danger" onclick="EliminarDelCarrito('+productoCarrito.producto.idProducto+')" style="margin-left: 5px; height:10%;">X</div></div>');
                     precioTotal = precioTotal + productoCarrito.producto.precioProducto;
                 });   
-                $('.carrito').append('<h3 class="text-center">TOTAL: $'+precioTotal+'</h3>');              
+                $('.carrito').append('<h3 class="text-center mb-5">TOTAL: $'+precioTotal+'</h3>');              
             
 
             },

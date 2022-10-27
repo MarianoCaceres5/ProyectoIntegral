@@ -10,11 +10,11 @@
 
 </div>
 
-    <div class="mt-5 mb-5">
+    <div class="mt-5" style="margin-bottom: 80px;">
         <div class="col-sm d-flex justify-content-center">     
             @foreach(Categoria cat in @ViewBag.Categorias){      
             <div class="card text-center" style="width: 20%;"> 
-                <a><img onclick="MostrarProductosPorCategoria(@cat.IdCategoria)" class="card-img-top imgCategoria" src="@cat.FotoCategoria" alt="Card image cap"></a>
+                <a><img href=".productosDestacados" onclick="MostrarProductosPorCategoria(@cat.IdCategoria)" class="card-img-top imgCategoria" src="@cat.FotoCategoria" alt="Card image cap"></a>
                 <div class="card-body">
                     <a style="text-decoration:none;"><h5 class="h5" onclick="MostrarProductosPorCategoria(@cat.IdCategoria)">@cat.NombreCategoria</h5></a>
                 </div>
@@ -25,8 +25,8 @@
     </div>            
 
 
-<div class="productos divProductos" style="display: none;">
-    <h3 class="mb-5 container text-center">Productos Destacados</h3>
+<div class="productos divProductos" style="display: none; margin-bottom: 60px;">
+    <h3 class="mb-5 container text-center productosDestacados">Productos Destacados</h3>
     <div class="row mb-4 container justify-content-center" id="listaProductos">
     
     </div>
