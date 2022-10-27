@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "g2ixZCKprAvAzjs/kRQOpMX0D9AN6KXG6dkSaMJLzOs=",
+  "Hash": "5ge9Nva7OfTD0+gQv/9Mxd+l9OiYsrDEvZN8OPRIvHk=",
   "Source": "ProyectoIntegral",
   "BasePath": "_content/ProyectoIntegral",
   "Mode": "Default",
@@ -219,6 +219,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Imagenes\\logoJoyeria.ai"
+    },
+    {
+      "Identity": "D:\\2022\\Programacion\\ProyectoIntegral\\wwwroot\\Imagenes\\usuario.png",
+      "SourceId": "ProyectoIntegral",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\2022\\Programacion\\ProyectoIntegral\\wwwroot\\",
+      "BasePath": "_content/ProyectoIntegral",
+      "RelativePath": "Imagenes/usuario.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Imagenes\\usuario.png"
     },
     {
       "Identity": "D:\\2022\\Programacion\\ProyectoIntegral\\wwwroot\\js\\site.js",

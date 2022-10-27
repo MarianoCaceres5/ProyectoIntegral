@@ -177,9 +177,10 @@ function MostrarCarrito(){
         success:
             function (resp){           
                 $('.carrito').append('<h2 style="margin-top: 100px; margin-left:50px;" class="">carrito</h2>');
-                resp.forEach(productoCarrito => {            
-                    $('.carrito').append('<div class="flex-container productoCarrito mt-4"><div class="flex-item2" style="margin-left: 5px;"><h5>'+productoCarrito.producto.nombreProducto+'</h5> <h6 style="color:gray;">x'+productoCarrito.cantUnidades+'</h6></div><div class="flex-item2" style="margin-left: 5px;"><h5 style="color:green;">$'+productoCarrito.producto.precioProducto+'</h5></div><div class="flex-item2 btn btn-danger" onclick="EliminarDelCarrito('+productoCarrito.producto.idProducto+')" style="margin-left: 5px; height:10%;">X</div></div>');
-                    precioTotal = precioTotal + productoCarrito.producto.precioProducto;
+                resp.forEach(productoCarrito => {    
+                          
+                    $('.carrito').append('<div class="flex-container productoCarrito mt-4"><div class="flex-item2" style="margin-left: 5px;"><h5>'+productoCarrito.producto.nombreProducto+'</h5> <h6 style="color:gray;">x'+productoCarrito.cantUnidades+'</h6></div><div class="flex-item2" style="margin-left: 5px;"><h5 style="color:green;">$'+(productoCarrito.producto.precioProducto * productoCarrito.cantUnidades)+'</h5></div><div class="flex-item2 btn btn-danger" onclick="EliminarDelCarrito('+productoCarrito.producto.idProducto+')" style="margin-left: 5px; height:10%;">X</div></div>');
+                    precioTotal = precioTotal + productoCarrito.producto.precioProducto * productoCarrito.cantUnidades;
                 });   
                 $('.carrito').append('<h3 class="text-center mb-5">TOTAL: $'+precioTotal+'</h3>');              
             
