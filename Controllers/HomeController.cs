@@ -40,11 +40,12 @@ public class HomeController : Controller
         
     }    
 
-    public IActionResult Registrarse(){
+    public IActionResult Registrarse(){   
+        ViewBag.RegistroCorrecto = true;     
         return View();
     }
 
-    public IActionResult GuardarRegistro(string EmailUsuario, string NombreUsuario, string ContrasenaUsuario, IFormFile FotoUsuario){
+    [HttpPost] public IActionResult GuardarRegistro(string EmailUsuario, string NombreUsuario, string ContrasenaUsuario, IFormFile FotoUsuario){
         
         if(FotoUsuario.Length > 0)
         {
@@ -55,10 +56,17 @@ public class HomeController : Controller
             }
         } 
 
-        Usuario newUsuario = new Usuario(EmailUsuario, NombreUsuario, ContrasenaUsuario, ("/fotosUsuarios/" + FotoUsuario.FileName));
-        BD.AgregarUsuario(newUsuario);
-        bool InicioSesionCorrecto = Tienda.IniciarSesion(EmailUsuario, ContrasenaUsuario);  
-        return RedirectToAction("Inicio","Home");        
+        if(Tienda.UsuarioExistente(EmailUsuario) == true){
+            ViewBag.RegistroCorrecto = false;
+            return View("Registrarse");
+        }else{
+            Usuario newUsuario = new Usuario(EmailUsuario, NombreUsuario, ContrasenaUsuario, ("/fotosUsuarios/" + FotoUsuario.FileName));
+            BD.AgregarUsuario(newUsuario);
+            bool InicioSesionCorrecto = Tienda.IniciarSesion(EmailUsuario, ContrasenaUsuario);  
+            return RedirectToAction("Inicio","Home");  
+        }
+
+            
     }
 
     /*

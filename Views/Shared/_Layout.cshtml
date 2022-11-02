@@ -41,7 +41,7 @@
                     {   
                           
                         <div class="dropdown">                        
-                            <img class="carritoLogo dropdown-toggle" src="/Imagenes/usuario.png" type="" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onclick="MostrarDesplegableUsuario()">   
+                            <img class="fotoUsuario dropdown-toggle" src="@Tienda.Usuario.FotoUsuario" type="" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onclick="MostrarDesplegableUsuario()">   
                             <div class="border dropdown-menu" aria-labelledby="dropdownMenuButton">
                                 <a class="dropdown-item" style="color:black;">@Tienda.Usuario.NombreUsuario</a>                                
                                 <a class="dropdown-item" style="color:red;" href='@Url.Action("CerrarSesion", "Home")'>Cerrar Sesión</a>

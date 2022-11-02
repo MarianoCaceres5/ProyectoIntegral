@@ -3,26 +3,30 @@
 }
 
 <div class="popup">    
-    <form class="form" id="formulario-contacto" method="post" action='@Url.Action("GuardarRegistro", "Home")' enctype="multipart/form-data">
+    <form class="form" method="post" action='@Url.Action("GuardarRegistro", "Home")' enctype="multipart/form-data">
         <h2 class="">Registro</h2>
+        @if(@ViewBag.RegistroCorrecto == false)
+        {
+            <p class="mt-2" style="color: red;">Usuario con mail ya existente</p>
+        }  
         <div class="form-element">
             <label for="email">MAIL*</label>
-            <input autocomplete="off" type="email" id="mail" placeholder="Ingresa tu mail" name="EmailUsuario" required>             
+            <input autocomplete="off" type="email" placeholder="Ingresa tu mail" name="EmailUsuario" required>             
         </div>
         <div class="form-element">
             <label for="email">Nombre*</label>
-            <input autocomplete="off" type="text" id="nombre" placeholder="Ingresa tu nombre" name="NombreUsuario" required>             
+            <input autocomplete="off" type="text" placeholder="Ingresa tu nombre" name="NombreUsuario" required>             
         </div>
         <div class="form-element">
             <label for="password">CONTRASEÑA*</label>
-            <input autocomplete="off" type="password" id="contrasena" name="ContrasenaUsuario" placeholder="Ingresa tu contraseña" required>                 
+            <input autocomplete="off" type="password" name="ContrasenaUsuario" placeholder="Ingresa tu contraseña" required>                 
         </div>
 
         <div class="form-element">
             <label for="password">Foto*</label>
             <input type="file" class="form-control-file  opacity-75 forms" name="FotoUsuario" autocomplete="off" required>
                            
-        </div>
+        </div>            
         
         <div class="form-element mt-4">
             <button type="submit" class="botonIniciar">Registrarse</button>         

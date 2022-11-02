@@ -82,6 +82,16 @@ namespace ProyectoIntegral.Models{
             return false;
         }
 
+        public static bool UsuarioExistente(string EmailUsuario){
+            List<Usuario> listaUsuarios = BD.ObtenerUsuarios();
+            foreach(Usuario usuario in listaUsuarios){
+                if(usuario.EmailUsuario == EmailUsuario){
+                    return true;
+                }
+            }
+            return false;
+        }
+
         
 
     }
