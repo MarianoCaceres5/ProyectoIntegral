@@ -7,7 +7,18 @@ using System.Timers;
 
 namespace ProyectoIntegral.Models{
 
-    public static class Tienda{                
+    public static class Tienda{    
+
+        private static Usuario _usuario = new Usuario();
+        private static bool _inicioSesion = false;
+        public static Usuario Usuario{
+            get{return _usuario;}
+            set{_usuario = value;}
+        }            
+        public static bool InicioSesion{
+            get{return _inicioSesion;}
+            set{_inicioSesion = value;}
+        }
 
         public static List<Categoria> ObtenerCategorias(){
             return BD.ObtenerCategorias();
@@ -31,7 +42,7 @@ namespace ProyectoIntegral.Models{
         }            
 
         public static List<ProductoEnCarrito> ObtenerCarrito(){
-            List<Carrito> carrito = BD.ObtenerCarrito();
+            List<Carrito> carrito = BD.ObtenerCarrito(_usuario.IdUsuario);
             List<Producto> listaProductos = ObtenerProductos();
             List<ProductoEnCarrito> listaProductosCarrito = new List<ProductoEnCarrito>();          
 
@@ -50,23 +61,28 @@ namespace ProyectoIntegral.Models{
         }
 
         public static List<Producto> ObtenerProductosPorCategoria(int IdCategoria){
-            List<Producto> listaProductos = BD.ObtenerProductosOrdenadosPorPrecio(IdCategoria);
-            List<Producto> listaProductosPorCategoria = new List<Producto>();
-            /*foreach(Producto prod in listaProductos){                
-                if(prod.IdCategoria == IdCategoria){
-                    listaProductosPorCategoria.Add(prod);
-                }
-            }       */
-
-
-
-            //return listaProductosPorCategoria;
+            List<Producto> listaProductos = BD.ObtenerProductosOrdenadosPorPrecio(IdCategoria);            
             return listaProductos;
         }
 
         public static Producto ObtenerProductoSeleccionado(int IdProducto){
             return BD.ObtenerProductoSeleccionado(IdProducto);
         }
+
+        public static bool IniciarSesion(string EmailUsuario, string ContrasenaUsuario){
+            List<Usuario> listaUsuarios = BD.ObtenerUsuarios();
+            
+            foreach(Usuario usuario in listaUsuarios){
+                if(usuario.EmailUsuario == EmailUsuario && usuario.ContrasenaUsuario == ContrasenaUsuario){
+                    _usuario = usuario;
+                    _inicioSesion = true;
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        
 
     }
 }

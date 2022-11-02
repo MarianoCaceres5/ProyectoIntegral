@@ -7,20 +7,20 @@ namespace ProyectoIntegral.Models
 {
     public class Consulta
     {
-        private int _idConsulta;
+        private int _idConsulta, _idUsuario;
         private DateTime _fechaConsulta;
-        private string _nombreUsuario, _emailUsuario, _descripcionConsulta;
-        public Consulta(string pnombreUsuario, DateTime pfechaConsulta, string pdescripcionConsulta, string pemailUsuario){
+        private string _nombreUsuario, _descripcionConsulta;
+        public Consulta(string pnombreUsuario, DateTime pfechaConsulta, string pdescripcionConsulta, int pidUsuario){
             _nombreUsuario = pnombreUsuario;
             _fechaConsulta = pfechaConsulta;
-            _descripcionConsulta = pdescripcionConsulta;
-            _emailUsuario = pemailUsuario;
+            _descripcionConsulta = pdescripcionConsulta;            
+            _idUsuario = pidUsuario;
         }
         public Consulta(){
             _nombreUsuario = "";
             _fechaConsulta = DateTime.MinValue;
             _descripcionConsulta = "";
-            _emailUsuario = "";
+            _idUsuario = 0;
         }
 
         public int IdConsulta{
@@ -39,9 +39,9 @@ namespace ProyectoIntegral.Models
             get{return _descripcionConsulta;}
             set{_descripcionConsulta = value;}
         }
-        public string EmailUsuario{
-            get{return _emailUsuario;}
-            set{_emailUsuario = value;}
+        public int IdUsuario{
+            get{return _idUsuario;}
+            set{_idUsuario = value;}
         }
     }
 }

@@ -9,10 +9,9 @@ using Dapper;
 
 namespace ProyectoIntegral.Models{
     
-    public class BD{        
-
+    public class BD{      
         private static string server = Dns.GetHostName();
-        private static string _connectionString = @$"Server={server};DataBase=ProyectoIntegral;Trusted_Connection=True;";        
+        private static string _connectionString = @$"Server={server}\SQLEXPRESS;DataBase=ProyectoIntegral;Trusted_Connection=True;";        
 
         public static List<Categoria> ObtenerCategorias(){
             List<Categoria> listaCategorias = new List<Categoria>();
@@ -30,7 +29,7 @@ namespace ProyectoIntegral.Models{
             }
             return productoSeleccionado;
         }    
-
+        
         public static List<Producto> ObtenerProductos(){
             List<Producto> listaProductos = new List<Producto>();
             string SQL = "SELECT * FROM Productos";
@@ -39,6 +38,14 @@ namespace ProyectoIntegral.Models{
             }
             return listaProductos;
         }    
+        public static List<Usuario> ObtenerUsuarios(){
+            List<Usuario> listaUsuarios = new List<Usuario>();
+            string SQL = "SELECT * FROM Usuarios";
+            using(SqlConnection db = new SqlConnection(_connectionString)){
+                listaUsuarios = db.Query<Usuario>(SQL).ToList();
+            }
+            return listaUsuarios;
+        }   
 
         public static List<Producto> BuscarProductos(string Busqueda){
             List<Producto> listaProductos = new List<Producto>();
@@ -58,27 +65,27 @@ namespace ProyectoIntegral.Models{
             return listaProductos;
         }    
 
-        public static List<Carrito> ObtenerCarrito(){
+        public static List<Carrito> ObtenerCarrito(int IdUsuario){
             List<Carrito> listaCarrito = new List<Carrito>();
-            string SQL = "SELECT * FROM Carritos";
+            string SQL = "SELECT * FROM Carritos where IdUsuario = @pIdUsuario";
             using(SqlConnection db = new SqlConnection(_connectionString)){
-                listaCarrito = db.Query<Carrito>(SQL).ToList();
+                listaCarrito = db.Query<Carrito>(SQL, new{pIdUsuario = IdUsuario}).ToList();
             }
             return listaCarrito;
         }
 
         public static void AgregarConsulta(Consulta consulta){            
-            string SQL = "INSERT INTO Consultas(NombreUsuario, FechaConsulta, DescripcionConsulta, EmailUsuario) VALUES(@pNombreUsuario, @pFechaConsulta, @pDescripcionConsulta, @pEmailUsuario)";
+            string SQL = "INSERT INTO Consultas(NombreUsuario, FechaConsulta, DescripcionConsulta, IdUsuario) VALUES(@pNombreUsuario, @pFechaConsulta, @pDescripcionConsulta, @pIdUsuario)";
             using(SqlConnection db = new SqlConnection(_connectionString)){
-                db.Execute(SQL, new {pNombreUsuario = consulta.NombreUsuario, pFechaConsulta = consulta.FechaConsulta, pDescripcionConsulta = consulta.DescripcionConsulta, pEmailUsuario = consulta.EmailUsuario});
+                db.Execute(SQL, new {pNombreUsuario = consulta.NombreUsuario, pFechaConsulta = consulta.FechaConsulta, pDescripcionConsulta = consulta.DescripcionConsulta, pIdUsuario = consulta.IdUsuario});
             }
 
         }
 
         public static void AgregarAlCarrito(Carrito carrito){
-            string SQL = "INSERT INTO Carritos(IdProducto, FechaAgregadoACarrito, CantidadUnidades) VALUES(@pIdProducto, @pFechaAgregadoACarrito, @pCantidadUnidades)";
+            string SQL = "INSERT INTO Carritos(IdProducto, FechaAgregadoACarrito, CantidadUnidades, IdUsuario) VALUES(@pIdProducto, @pFechaAgregadoACarrito, @pCantidadUnidades, @pIdUsuario)";
             using(SqlConnection db = new SqlConnection(_connectionString)){
-                db.Execute(SQL, new {pIdProducto = carrito.IdProducto, pFechaAgregadoACarrito = carrito.FechaAgregadoACarrito, pCantidadUnidades = carrito.CantidadUnidades});
+                db.Execute(SQL, new {pIdProducto = carrito.IdProducto, pFechaAgregadoACarrito = carrito.FechaAgregadoACarrito, pCantidadUnidades = carrito.CantidadUnidades, pIdUsuario = carrito.IdUsuario});
             }
         }
 
@@ -95,6 +102,14 @@ namespace ProyectoIntegral.Models{
                 db.Execute(SQL, new{pCantidadUnidades = CantidadUnidades, pIdProducto = IdProducto});
             }
         }    
+
+        public static void AgregarUsuario(Usuario usuario){            
+            string SQL = "INSERT INTO Usuarios(EmailUsuario, NombreUsuario, ContrasenaUsuario, FotoUsuario) VALUES(@pEmailUsuario, @pNombreUsuario, @pContrasenaUsuario, @pFotoUsuario)";
+            using(SqlConnection db = new SqlConnection(_connectionString)){
+                db.Execute(SQL, new {pEmailUsuario = usuario.EmailUsuario, pNombreUsuario = usuario.NombreUsuario, pContrasenaUsuario = usuario.ContrasenaUsuario, pFotoUsuario = usuario.FotoUsuario});
+            }
+
+        }
 
         /*
 

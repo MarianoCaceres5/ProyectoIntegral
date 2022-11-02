@@ -1,0 +1,29 @@
+@{
+    ViewData["Title"] = "Login";
+}
+
+<div class="popup">    
+    <form class="form" method="post" action='@Url.Action("IniciarSesion", "Home")' enctype="multipart/form-data">
+        <h2 class="">LOG IN</h2>
+        <div class="form-element">
+            <label for="email">MAIL*</label>
+            <input autocomplete="off" type="email" id="mail" placeholder="Ingresa tu mail" name="EmailUsuario" required>  
+            
+        </div>
+        <div class="form-element">
+            <label for="password">CONTRASEÑA*</label>
+            <input autocomplete="off" type="password" id="contrasena" name="ContrasenaUsuario" placeholder="Ingresa tu contraseña" required>            
+            @if(@ViewBag.InicioSesionCorrecto == false)
+            {
+              <p class="mt-2" style="color: red;">Mail de usuario o contraseña incorrectos</p>
+            }          
+        </div>
+        
+        <div class="form-element mt-4">
+            <button type="submit" class="botonIniciar">Iniciar Sesión</button>
+            <p class="text-center mt-3">¿No tenés cuenta? <a href='@Url.Action("Registrarse", "Home")'>Registrarse</a></p>
+        </div>
+    </form>
+
+</div>
+

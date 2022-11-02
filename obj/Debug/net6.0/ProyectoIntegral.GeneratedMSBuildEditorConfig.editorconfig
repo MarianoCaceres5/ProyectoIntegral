@@ -8,45 +8,53 @@ build_property.PlatformNeutralAssembly =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = ProyectoIntegral
 build_property.RootNamespace = ProyectoIntegral
-build_property.ProjectDir = D:\2022\Programacion\ProyectoIntegral\
+build_property.ProjectDir = c:\Users\Nano\Desktop\ProyectoIntegral_con_usuario\ProyectoIntegral\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = D:\2022\Programacion\ProyectoIntegral
+build_property.MSBuildProjectDirectory = c:\Users\Nano\Desktop\ProyectoIntegral_con_usuario\ProyectoIntegral
 build_property._RazorSourceGeneratorDebug = 
 
-[D:/2022/Programacion/ProyectoIntegral/Views/Home/Contacto.cshtml]
+[c:/Users/Nano/Desktop/ProyectoIntegral_con_usuario/ProyectoIntegral/Views/Home/Contacto.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxDb250YWN0by5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/2022/Programacion/ProyectoIntegral/Views/Home/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+[c:/Users/Nano/Desktop/ProyectoIntegral_con_usuario/ProyectoIntegral/Views/Home/Inicio.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmljaW8uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/2022/Programacion/ProyectoIntegral/Views/Home/Privacy.cshtml]
+[c:/Users/Nano/Desktop/ProyectoIntegral_con_usuario/ProyectoIntegral/Views/Home/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxMb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/Nano/Desktop/ProyectoIntegral_con_usuario/ProyectoIntegral/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/2022/Programacion/ProyectoIntegral/Views/Home/Productos.cshtml]
+[c:/Users/Nano/Desktop/ProyectoIntegral_con_usuario/ProyectoIntegral/Views/Home/Productos.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcm9kdWN0b3MuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/2022/Programacion/ProyectoIntegral/Views/Shared/Error.cshtml]
+[c:/Users/Nano/Desktop/ProyectoIntegral_con_usuario/ProyectoIntegral/Views/Home/Registrarse.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxSZWdpc3RyYXJzZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/Nano/Desktop/ProyectoIntegral_con_usuario/ProyectoIntegral/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/2022/Programacion/ProyectoIntegral/Views/Shared/_ValidationScriptsPartial.cshtml]
+[c:/Users/Nano/Desktop/ProyectoIntegral_con_usuario/ProyectoIntegral/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/2022/Programacion/ProyectoIntegral/Views/_ViewImports.cshtml]
+[c:/Users/Nano/Desktop/ProyectoIntegral_con_usuario/ProyectoIntegral/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/2022/Programacion/ProyectoIntegral/Views/_ViewStart.cshtml]
+[c:/Users/Nano/Desktop/ProyectoIntegral_con_usuario/ProyectoIntegral/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/2022/Programacion/ProyectoIntegral/Views/Shared/_Layout.cshtml]
+[c:/Users/Nano/Desktop/ProyectoIntegral_con_usuario/ProyectoIntegral/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-93rs8tt58v

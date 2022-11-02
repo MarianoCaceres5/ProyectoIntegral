@@ -1,7 +1,7 @@
-﻿using System.Collections.Generic;
-using System.Timers;
+﻿using System.Collections;
 using System;
-using System.Net;
+using System.Collections.Generic;
+using System.Timers;
 using System.ComponentModel.Design;
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
@@ -9,6 +9,8 @@ using ProyectoIntegral.Models;
 using System.Linq.Expressions;
 using System.IO;
 using Microsoft.AspNetCore.Hosting;
+using System.Net;
+
 
 namespace ProyectoIntegral.Controllers;
 
@@ -22,6 +24,73 @@ public class HomeController : Controller
     }
 
     public IActionResult Index()
+    {                
+        return View("Login");
+    }    
+
+    [HttpPost] public IActionResult IniciarSesion(string EmailUsuario, string ContrasenaUsuario)
+    {                
+        bool InicioSesionCorrecto = Tienda.IniciarSesion(EmailUsuario, ContrasenaUsuario);        
+        ViewBag.InicioSesionCorrecto = InicioSesionCorrecto;
+        if(InicioSesionCorrecto == true){            
+            return RedirectToAction("Inicio","Home");
+        }else{            
+            return View("Login");
+        }
+        
+    }    
+
+    public IActionResult Registrarse(){
+        return View();
+    }
+
+    public IActionResult GuardarRegistro(string EmailUsuario, string NombreUsuario, string ContrasenaUsuario, IFormFile FotoUsuario){
+        
+        if(FotoUsuario.Length > 0)
+        {
+            string wwwRootLocal = this.Environment.ContentRootPath + @"\wwwroot\fotosUsuarios\" + FotoUsuario.FileName;
+            using(var stream = System.IO.File.Create(wwwRootLocal)){
+                
+                FotoUsuario.CopyToAsync(stream);
+            }
+        } 
+
+        Usuario newUsuario = new Usuario(EmailUsuario, NombreUsuario, ContrasenaUsuario, ("/fotosUsuarios/" + FotoUsuario.FileName));
+        BD.AgregarUsuario(newUsuario);
+        bool InicioSesionCorrecto = Tienda.IniciarSesion(EmailUsuario, ContrasenaUsuario);  
+        return RedirectToAction("Inicio","Home");        
+    }
+
+    /*
+
+    public void MandarMail(string EmailUsuario){
+
+        string EmailOrigen = "nanocaceres2005@gmail.com";
+        string EmailDestino = EmailUsuario;
+        string Contraseña = "mariano15";
+
+        MailMessage oMailMessage = new MailMessage(EmailOrigen, EmailDestino, "Hola asunto", "<p>Este es el mensaje</p>");  
+        oMailMessage.IsBodyHtml = true;      
+
+        SmtpClient oSmtpClient = new SmtpClient("smtp.gmail.com");
+        oSmtpClient.EnableSsl = true;
+        oSmtpClient.UseDefaultCredentials = false;
+        oSmtpClient.Host = "smtp.gmail.com";
+        oSmtpClient.Port = 587;
+        oSmtpClient.Credentials = new System.Net.NetworkCredential(EmailOrigen, Contraseña);
+
+        oSmtpClient.Send(oMailMessage);
+        oSmtpClient.Dispose();
+
+    } */
+
+    public IActionResult CerrarSesion(){
+        Tienda.Usuario = new Usuario();
+        Tienda.InicioSesion = false;
+        return RedirectToAction("Index", "Home");
+    }
+
+    public IActionResult Inicio()
     {        
         ViewBag.Categorias = Tienda.ObtenerCategorias();       
         ViewBag.Productos = Tienda.ObtenerProductos(); 
@@ -34,13 +103,21 @@ public class HomeController : Controller
         return View();
     }
 
+    public IActionResult Usuario(){
+        if(Tienda.InicioSesion == false){
+            return View("Login");
+        }else{
+            return RedirectToAction("Inicio", "Home");
+        }
+    }
+
     public IActionResult Contacto(){        
         return View("Contacto");
     }
 
-    public IActionResult GuardarConsulta(string NombreUsuario, string EmailUsuario, string DescripcionConsulta){
+    public IActionResult GuardarConsulta(string NombreUsuario, string DescripcionConsulta){
         DateTime FechaConsulta = DateTime.Now;
-        Consulta consulta = new Consulta(NombreUsuario, FechaConsulta, DescripcionConsulta, EmailUsuario);
+        Consulta consulta = new Consulta(NombreUsuario, FechaConsulta, DescripcionConsulta, Tienda.Usuario.IdUsuario);
         BD.AgregarConsulta(consulta);
         return View("Contacto");
     }
@@ -64,7 +141,7 @@ public class HomeController : Controller
 
     public void AgregarAlCarrito (int IdProducto){
         bool carritoActualizado = false;
-        List<Carrito> carritos = BD.ObtenerCarrito();
+        List<Carrito> carritos = BD.ObtenerCarrito(Tienda.Usuario.IdUsuario);
         foreach(Carrito carr in carritos){
             if(IdProducto == carr.IdProducto){
                 BD.ActualizarCarrito(IdProducto, (carr.CantidadUnidades+1));
@@ -74,7 +151,7 @@ public class HomeController : Controller
         if(carritoActualizado == false){
             DateTime fechaAgregado = DateTime.Now;        
             int CantUnidades = 1;
-            Carrito carrito = new Carrito(IdProducto, fechaAgregado, CantUnidades);
+            Carrito carrito = new Carrito(IdProducto, fechaAgregado, CantUnidades, Tienda.Usuario.IdUsuario);
             BD.AgregarAlCarrito(carrito);
         }
         
