@@ -215,6 +215,7 @@ a h5{
   border: none;
   font-size: 40px;
   color: gray;
+  
 }
 
 .cerrarModal:hover{
@@ -396,4 +397,5 @@ a h5{
   width: 50px;
   margin-right: 20px;
   border-radius: 100%;
+  object-fit: cover;
 }

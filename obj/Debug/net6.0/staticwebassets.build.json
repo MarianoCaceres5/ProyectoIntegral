@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "F0dTOlzpPJ0UlPyUajdaQSldSjtxk/MrnESK4XTc9/I=",
+  "Hash": "f+ZorjVTr9zcXpcpTgEeTmlPZRSyrrSlaLc+8fJgFeU=",
   "Source": "ProyectoIntegral",
   "BasePath": "_content/ProyectoIntegral",
   "Mode": "Default",
@@ -170,6 +170,23 @@
       "OriginalItemSpec": "wwwroot\\fotosUsuarios\\dabi.jpg"
     },
     {
+      "Identity": "D:\\2022\\Programacion\\ProyectoIntegral_con_usuario\\ProyectoIntegral\\wwwroot\\fotosUsuarios\\footooo.jpg",
+      "SourceId": "ProyectoIntegral",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\2022\\Programacion\\ProyectoIntegral_con_usuario\\ProyectoIntegral\\wwwroot\\",
+      "BasePath": "_content/ProyectoIntegral",
+      "RelativePath": "fotosUsuarios/footooo.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\fotosUsuarios\\footooo.jpg"
+    },
+    {
       "Identity": "D:\\2022\\Programacion\\ProyectoIntegral_con_usuario\\ProyectoIntegral\\wwwroot\\fotosUsuarios\\fotoUsuario.jpg",
       "SourceId": "ProyectoIntegral",
       "SourceType": "Discovered",
@@ -187,6 +204,40 @@
       "OriginalItemSpec": "wwwroot\\fotosUsuarios\\fotoUsuario.jpg"
     },
     {
+      "Identity": "D:\\2022\\Programacion\\ProyectoIntegral_con_usuario\\ProyectoIntegral\\wwwroot\\fotosUsuarios\\guada.jfif",
+      "SourceId": "ProyectoIntegral",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\2022\\Programacion\\ProyectoIntegral_con_usuario\\ProyectoIntegral\\wwwroot\\",
+      "BasePath": "_content/ProyectoIntegral",
+      "RelativePath": "fotosUsuarios/guada.jfif",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\fotosUsuarios\\guada.jfif"
+    },
+    {
+      "Identity": "D:\\2022\\Programacion\\ProyectoIntegral_con_usuario\\ProyectoIntegral\\wwwroot\\fotosUsuarios\\images.jpg",
+      "SourceId": "ProyectoIntegral",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\2022\\Programacion\\ProyectoIntegral_con_usuario\\ProyectoIntegral\\wwwroot\\",
+      "BasePath": "_content/ProyectoIntegral",
+      "RelativePath": "fotosUsuarios/images.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\fotosUsuarios\\images.jpg"
+    },
+    {
       "Identity": "D:\\2022\\Programacion\\ProyectoIntegral_con_usuario\\ProyectoIntegral\\wwwroot\\fotosUsuarios\\LogoEfsiPagaYa-03.png",
       "SourceId": "ProyectoIntegral",
       "SourceType": "Discovered",
@@ -202,6 +253,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\fotosUsuarios\\LogoEfsiPagaYa-03.png"
+    },
+    {
+      "Identity": "D:\\2022\\Programacion\\ProyectoIntegral_con_usuario\\ProyectoIntegral\\wwwroot\\fotosUsuarios\\mendez.jpeg",
+      "SourceId": "ProyectoIntegral",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\2022\\Programacion\\ProyectoIntegral_con_usuario\\ProyectoIntegral\\wwwroot\\",
+      "BasePath": "_content/ProyectoIntegral",
+      "RelativePath": "fotosUsuarios/mendez.jpeg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\fotosUsuarios\\mendez.jpeg"
     },
     {
       "Identity": "D:\\2022\\Programacion\\ProyectoIntegral_con_usuario\\ProyectoIntegral\\wwwroot\\fuente.ttf",

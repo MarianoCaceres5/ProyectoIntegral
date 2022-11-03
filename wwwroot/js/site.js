@@ -1,24 +1,17 @@
-﻿// Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
+﻿// 
 
-// Write your JavaScript code.
+let busq = "";
 
-/*
-var myHeaders = new Headers();
-myHeaders.append("apikey", "NIHCco3Vz28XSBlxGYO201cf27lgQDNM");
+$('#ingresoBusqueda').keyup(function(e) {
+    //do sth here        
 
-var requestOptions = {
-  method: 'GET',
-  redirect: 'follow',
-  headers: myHeaders
-};
+    BuscarProductos($('#ingresoBusqueda').val())
+       
 
-fetch("https://api.apilayer.com/email_verification/check?email=", requestOptions)
-  .then(response => response.text())
-  .then(result => console.log(result))
-  .catch(error => console.log('error', error)); */
+    
+});
 
-////
+//
 
 var IdCategoria = -1;
 
@@ -96,8 +89,10 @@ function AgregarAlCarrito(idP){
                 console.log("godeto")
                 $('.agregarCarrito').css('background-color', 'green');
                 $('.agregarCarrito').html('Agregado al carrito');
-                              
-                
+                $('.agregarCarrito').attr('disabled', true);
+                                
+                //document.getElementById('submitButton').disabled = true;
+                            
             },
         error:
             function(){
@@ -176,7 +171,8 @@ var carritoShow =0;
 
 function MostrarCarrito(){
 
-    var precioTotal = 0;
+    $('.modal').hide();
+    
     $('.carrito').html(''); 
     if(carritoShow == 0){        
         $('.carrito').show();
@@ -186,17 +182,18 @@ function MostrarCarrito(){
         carritoShow=0;
     }
 
-    $.ajax({
+    $.ajax({       
 
         url: '/Home/ObtenerCarrito',        
         type:'POST',
         dataType:'JSON',            
         success:
-            function (resp){           
+            function (resp){    
+                var precioTotal = 0;
                 $('.carrito').append('<h2 style="margin-top: 100px; margin-left:50px;" class="">carrito</h2>');
                 resp.forEach(productoCarrito => {            
                     $('.carrito').append('<div class="flex-container productoCarrito mt-4"><div class="flex-item2" style="margin-left: 5px;"><h5>'+productoCarrito.producto.nombreProducto+'</h5> <h6 style="color:gray;">x'+productoCarrito.cantUnidades+'</h6></div><div class="flex-item2" style="margin-left: 5px;"><h5 style="color:green;">$'+productoCarrito.producto.precioProducto+'</h5></div><div class="flex-item2 btn btn-danger" onclick="EliminarDelCarrito('+productoCarrito.producto.idProducto+')" style="margin-left: 5px; height:10%;">X</div></div>');
-                    precioTotal = precioTotal + productoCarrito.producto.precioProducto;
+                    precioTotal = precioTotal + productoCarrito.producto.precioProducto*productoCarrito.cantUnidades;
                 });   
                 $('.carrito').append('<h3 class="text-center mb-5">TOTAL: $'+precioTotal+'</h3>');              
             
