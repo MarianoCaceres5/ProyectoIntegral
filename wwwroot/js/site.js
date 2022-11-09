@@ -101,7 +101,6 @@ function AgregarAlCarrito(idP){
             }
 
     });
-    alert("Producto agregado al carrito");      
 }
 
 //
