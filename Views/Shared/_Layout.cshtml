@@ -48,6 +48,7 @@
                             </div>
                         </div>   
                         <span onclick="MostrarCarrito()" style="margin-right: 50px;"><img class="carritoLogo" src="/Imagenes/carrito.png" alt=""></span>
+
                                     
                         
                     }else{
@@ -72,15 +73,69 @@
                                     
             
         </div>
-    </div>
-    
+    </div>  
+
+    @if(@Tienda.InicioSesion == true){
+
+    <footer class="footer">
+        <div class="container-fluid">
+            <div class="row pt-5 pr-0 pl-5 fondoNegro text-white text-center">
+                <div class="col-lg-3">
+                    <p class="h3">Full Ice</p> 
+                    <p class="h6 text-secondary">Buenos Aires, Argentina</p>           
+                </div>
+                <div class="col-lg-3">
+
+                    <p class="h6">Ayuda</p>
+                    <div class="mb-2">
+                    <a class="text-secondary text-decoration-none" target="_blank" href='@Url.Action("Contacto", "Home")'>Servicio</a>
+                    </div>
+
+                    <div class="mb-2">
+                    <a class="text-secondary text-decoration-none" target="_blank" href='@Url.Action("Contacto", "Home")'>Envíos y entregas</a>
+                    </div>            
+                
+                </div>
+                <div class="col-lg-3">
+
+                    <p class="h6">Redes</p>
+                    <div class="mb-2">
+                    <a class="text-secondary text-decoration-none" target="_blank" href="https://www.instagram.com/fullice.arg/?hl=es-la" target="_blank">Instagram</a>
+                    </div>
+
+                    <div class="mb-2">
+                    <a class="text-secondary text-decoration-none" target="_blank" href="https://m.facebook.com/heladofullice/photos/full-ice-el-primer-helado-proteico-de-argentina-20-gramos-de-whey-protein-en-un-/1617922481844438/" target="_blank">Facebook</a>
+                    </div>  
+
+                    <div class="mb-2">
+                    <a class="text-secondary text-decoration-none" target="_blank" href="https://twitter.com/ysy__a/status/1287568664611389441?lang=es" target="_blank">Twitter</a>
+                    </div>         
 
 
-    <footer class="border-top footer text-muted" style="">
-        <div class="container" style="margin-top: 0;">
-            &copy; 2022 - ProyectoIntegral - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                </div>
+                <div class="col-lg-3">
+
+                    <p class="h6">Contacto</p>
+
+                    <div class="mb-2">
+                    <a class="text-secondary text-decoration-none" target="_blank" href="https://www.instagram.com/riverplate/?hl=es-la">Trabaja con nosotros</a>
+                    </div> 
+
+                    
+                    <div class="mb-2">
+                    <a class="text-secondary text-decoration-none" target="_blank" href="https://www.instagram.com/chuchudemontegrande/">Campañas</a>
+                    </div>       
+
+                </div>
+
+                <div class="col-xs-12 pt-4 pb-2">
+                    <p class="text-secondary text-center">© 2022 Full Ice, Inc. Todos los derechos reservados</p>  
+                </div>          
+            </div>
         </div>
     </footer>
+
+    }
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>

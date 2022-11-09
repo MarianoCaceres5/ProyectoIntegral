@@ -67,30 +67,7 @@ public class HomeController : Controller
         }
 
             
-    }
-
-    /*
-
-    public void MandarMail(string EmailUsuario){
-
-        string EmailOrigen = "nanocaceres2005@gmail.com";
-        string EmailDestino = EmailUsuario;
-        string Contraseña = "mariano15";
-
-        MailMessage oMailMessage = new MailMessage(EmailOrigen, EmailDestino, "Hola asunto", "<p>Este es el mensaje</p>");  
-        oMailMessage.IsBodyHtml = true;      
-
-        SmtpClient oSmtpClient = new SmtpClient("smtp.gmail.com");
-        oSmtpClient.EnableSsl = true;
-        oSmtpClient.UseDefaultCredentials = false;
-        oSmtpClient.Host = "smtp.gmail.com";
-        oSmtpClient.Port = 587;
-        oSmtpClient.Credentials = new System.Net.NetworkCredential(EmailOrigen, Contraseña);
-
-        oSmtpClient.Send(oMailMessage);
-        oSmtpClient.Dispose();
-
-    } */
+    }    
 
     public IActionResult CerrarSesion(){
         Tienda.Usuario = new Usuario();

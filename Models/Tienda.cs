@@ -11,6 +11,7 @@ namespace ProyectoIntegral.Models{
 
         private static Usuario _usuario = new Usuario();
         private static bool _inicioSesion = false;
+        
         public static Usuario Usuario{
             get{return _usuario;}
             set{_usuario = value;}
@@ -18,7 +19,7 @@ namespace ProyectoIntegral.Models{
         public static bool InicioSesion{
             get{return _inicioSesion;}
             set{_inicioSesion = value;}
-        }
+        }        
 
         public static List<Categoria> ObtenerCategorias(){
             return BD.ObtenerCategorias();
@@ -55,7 +56,7 @@ namespace ProyectoIntegral.Models{
                     }
                 }
             }
-
+           
             return listaProductosCarrito;
 
         }
