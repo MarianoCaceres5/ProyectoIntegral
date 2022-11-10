@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "f+ZorjVTr9zcXpcpTgEeTmlPZRSyrrSlaLc+8fJgFeU=",
+  "Hash": "5K6vooHqSLKxcApAsrxu8iFM4fnyiAwkwd/6wSjrA0A=",
   "Source": "ProyectoIntegral",
   "BasePath": "_content/ProyectoIntegral",
   "Mode": "Default",
@@ -270,6 +270,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\fotosUsuarios\\mendez.jpeg"
+    },
+    {
+      "Identity": "D:\\2022\\Programacion\\ProyectoIntegral_con_usuario\\ProyectoIntegral\\wwwroot\\fotosUsuarios\\nadie.JPG",
+      "SourceId": "ProyectoIntegral",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\2022\\Programacion\\ProyectoIntegral_con_usuario\\ProyectoIntegral\\wwwroot\\",
+      "BasePath": "_content/ProyectoIntegral",
+      "RelativePath": "fotosUsuarios/nadie.JPG",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\fotosUsuarios\\nadie.JPG"
     },
     {
       "Identity": "D:\\2022\\Programacion\\ProyectoIntegral_con_usuario\\ProyectoIntegral\\wwwroot\\fuente.ttf",
