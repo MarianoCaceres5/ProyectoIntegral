@@ -11,7 +11,7 @@ namespace ProyectoIntegral.Models{
     
     public class BD{      
         private static string server = Dns.GetHostName();
-        private static string _connectionString = @$"Server={server};DataBase=ProyectoIntegral;Trusted_Connection=True;";        
+        private static string _connectionString = @$"Server={server}\SQLEXPRESS;DataBase=ProyectoIntegral;Trusted_Connection=True;";        
 
         public static List<Categoria> ObtenerCategorias(){
             List<Categoria> listaCategorias = new List<Categoria>();

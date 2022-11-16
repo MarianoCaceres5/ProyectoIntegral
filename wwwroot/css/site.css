@@ -80,7 +80,7 @@ html {
 }
 
 body {
-  margin-bottom: 60px;
+
   font-family: 'Bebas Neue';
   
 }
@@ -360,7 +360,7 @@ a h5{
 
 .popup .form .form-element{
   margin: 15px 0px;
-}
+}display
 
 .popup .form .form-element .label{
   font-size: 14px;
@@ -398,4 +398,9 @@ a h5{
   margin-right: 20px;
   border-radius: 100%;
   object-fit: cover;
+}
+
+.nomProducto:hover{
+  cursor: pointer;
+
 }
